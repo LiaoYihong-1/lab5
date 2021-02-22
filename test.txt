@@ -1,0 +1,12 @@
+help
+history
+help
+info
+history
+help
+add
+info
+history
+clear
+info
+exit
