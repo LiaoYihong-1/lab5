@@ -206,10 +206,9 @@ public class Person implements Comparable<Person>{
      * @return Person
      * @throws NullException
      * @throws ValueTooBigException
-     * @throws NotSuchColorException
      * @throws ValueTooSmallException
      */
-    public static Person PeopleCreate() throws NullException, ValueTooBigException,NotSuchColorException,ValueTooSmallException{
+    public static Person PeopleCreate() throws NullException, ValueTooBigException,ValueTooSmallException{
         System.out.print("Input x(<=79):\n");
         String sx=Tools.Input();
         Integer x=Integer.valueOf(sx);
@@ -225,6 +224,9 @@ public class Person implements Comparable<Person>{
         System.out.print("Input z(>0):\n");
         String sz=Tools.Input();
         Integer z=Integer.valueOf(sz);
+        if(z<=0){
+            throw new ValueTooSmallException("z should bigger than 0\n");
+        }
         System.out.print("name of location:\n");
         String nameoflocation=Tools.Input();
         System.out.print("name of Person:\n");
@@ -232,22 +234,16 @@ public class Person implements Comparable<Person>{
         System.out.print("set hairColor from\n"+HairColor.List()+":");
         String HC=Tools.Input();
         HC=HC.toUpperCase();
-        if(!(HairColor.List().indexOf(HC)!=-1)){
-            throw new NotSuchColorException("no such haircolor\n");
-        }
         HairColor hairColor=HairColor.valueOf(HC);
         System.out.print("set eyecolor from\n"+EyeColor.List()+":");
         String EC=Tools.Input();
         EC=EC.toUpperCase();
-        if(!(EyeColor.List().indexOf(EC)!=-1)){
-            throw new NotSuchColorException("no such eyecolor\n");
-        }
         EyeColor eyeColor=EyeColor.valueOf(EC);
         System.out.print("set height(>0)\n");
         String H=Tools.Input();
         int height=Integer.valueOf(H);
         if(height<=0){
-            throw new ValueTooSmallException("z should bigger than 0\n");
+            throw new ValueTooSmallException("heighte should bigger than 0\n");
         }
         Coordinates coordinates=new Coordinates(x,y);
         Location location=new Location(coordinates,nameoflocation,z);
@@ -295,7 +291,6 @@ public class Person implements Comparable<Person>{
     }
 
     /**
-     *
      * @return int
      */
     @Override
