@@ -41,15 +41,16 @@ public class Lab {
             }catch (NullException e){
                 System.out.print(e.getMessage()+"\n");
             }catch (NumberFormatException e){
-                System.out.print("please input a number instead of word\n");
-            }catch (NotSuchColorException e){
-                System.out.print(e.getMessage());
+                System.out.print(e.getMessage()+"\n");
             }catch (ValueTooSmallException e){
                 System.out.print(e.getMessage());
             }catch (ValueTooBigException e){
                 System.out.print(e.getMessage());
             }catch (NullPointerException e){
-                System.out.print(e.getMessage());
+                System.out.print(e.getMessage()+"\n");
+                System.out.print("Input a number instead of a word\n");
+            }catch (IllegalArgumentException e){
+                System.out.print(e.getMessage()+"\n");
             }
         }
     }
