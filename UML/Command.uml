@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Command</OriginalElement>
+  <nodes>
+    <node x="0.0" y="958.5">Command.Add</node>
+    <node x="4354.0" y="958.5">Command.Show</node>
+    <node x="4665.0" y="958.5">Command.Save</node>
+    <node x="2799.0" y="958.5">Command.ExecuteScript</node>
+    <node x="0.0" y="0.0">Command.CommandManager</node>
+    <node x="2488.0" y="958.5">Command.Addifmin</node>
+    <node x="300.0" y="1106.0">Command.ParaInapproException</node>
+    <node x="2332.5" y="677.0">Command.AbstractCommand</node>
+    <node x="311.0" y="958.5">Command.RemoveGreater</node>
+    <node x="4043.0" y="958.5">Command.RemoveEyeColor</node>
+    <node x="1244.0" y="958.5">Command.RemoveById</node>
+    <node x="1866.0" y="958.5">Command.Info</node>
+    <node x="3732.0" y="958.5">Command.UpdateID</node>
+    <node x="0.0" y="1106.0">Command.NoSuchCommandException</node>
+    <node x="1555.0" y="935.0">Command.History</node>
+    <node x="933.0" y="958.5">Command.Help</node>
+    <node x="3421.0" y="958.5">Command.Print</node>
+    <node x="622.0" y="958.5">Command.Average</node>
+    <node x="3110.0" y="958.5">Command.Exit</node>
+    <node x="2177.0" y="958.5">Command.Clear</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Command.Show" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="4499.5" y="855.0" />
+      <point x="2596.21875" y="855.0" />
+      <point x="118.21875" y="74.0" />
+    </edge>
+    <edge source="Command.Add" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="145.5" y="845.0" />
+      <point x="2341.59375" y="845.0" />
+      <point x="-136.40625" y="74.0" />
+    </edge>
+    <edge source="Command.Save" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="4810.5" y="845.0" />
+      <point x="2614.40625" y="845.0" />
+      <point x="136.40625" y="74.0" />
+    </edge>
+    <edge source="Command.Print" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="3566.5" y="885.0" />
+      <point x="2541.65625" y="885.0" />
+      <point x="63.65625" y="74.0" />
+    </edge>
+    <edge source="Command.Help" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="1078.5" y="875.0" />
+      <point x="2396.15625" y="875.0" />
+      <point x="-81.84375" y="74.0" />
+    </edge>
+    <edge source="Command.Clear" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="2322.5" y="915.0" />
+      <point x="2468.90625" y="915.0" />
+      <point x="-9.09375" y="74.0" />
+    </edge>
+    <edge source="Command.Info" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="2011.5" y="905.0" />
+      <point x="2450.71875" y="905.0" />
+      <point x="-27.28125" y="74.0" />
+    </edge>
+    <edge source="Command.Addifmin" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="2633.5" y="915.0" />
+      <point x="2487.09375" y="915.0" />
+      <point x="9.09375" y="74.0" />
+    </edge>
+    <edge source="Command.Exit" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="3255.5" y="895.0" />
+      <point x="2523.46875" y="895.0" />
+      <point x="45.46875" y="74.0" />
+    </edge>
+    <edge source="Command.Average" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="767.5" y="865.0" />
+      <point x="2377.96875" y="865.0" />
+      <point x="-100.03125" y="74.0" />
+    </edge>
+    <edge source="Command.History" target="Command.AbstractCommand">
+      <point x="0.0" y="-63.0" />
+      <point x="1700.5" y="895.0" />
+      <point x="2432.53125" y="895.0" />
+      <point x="-45.46875" y="74.0" />
+    </edge>
+    <edge source="Command.RemoveGreater" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="456.5" y="855.0" />
+      <point x="2359.78125" y="855.0" />
+      <point x="-118.21875" y="74.0" />
+    </edge>
+    <edge source="Command.RemoveById" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="1389.5" y="885.0" />
+      <point x="2414.34375" y="885.0" />
+      <point x="-63.65625" y="74.0" />
+    </edge>
+    <edge source="Command.RemoveEyeColor" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="4188.5" y="865.0" />
+      <point x="2578.03125" y="865.0" />
+      <point x="100.03125" y="74.0" />
+    </edge>
+    <edge source="Command.UpdateID" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="3877.5" y="875.0" />
+      <point x="2559.84375" y="875.0" />
+      <point x="81.84375" y="74.0" />
+    </edge>
+    <edge source="Command.ExecuteScript" target="Command.AbstractCommand">
+      <point x="0.0" y="-39.5" />
+      <point x="2944.5" y="905.0" />
+      <point x="2505.28125" y="905.0" />
+      <point x="27.28125" y="74.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.19815112540192922" x="2478.0" y="580.5" />
+  <SelectedNodes>
+    <node>Command.CommandManager</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

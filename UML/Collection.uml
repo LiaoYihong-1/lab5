@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Collection</OriginalElement>
+  <nodes>
+    <node x="546.0" y="815.0">Collection.EyeColor</node>
+    <node x="239.0" y="815.0">Collection.CollectionsofPerson</node>
+    <node x="693.0" y="0.0">Collection.Coordinates</node>
+    <node x="301.0" y="1054.0">Collection.ValueTooSmallException</node>
+    <node x="582.0" y="1054.0">Collection.NotSuchColorException</node>
+    <node x="0.0" y="0.0">Collection.Person</node>
+    <node x="858.0" y="1054.0">Collection.ValueTooBigException</node>
+    <node x="0.0" y="1054.0">Collection.NotInitializationException</node>
+    <node x="378.0" y="0.0">Collection.Location</node>
+    <node x="781.0" y="815.0">Collection.NullException</node>
+    <node x="0.0" y="815.0">Collection.HairColor</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.7847652790079717" x="541.0" y="554.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
