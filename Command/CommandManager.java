@@ -29,6 +29,7 @@ public class CommandManager {
         commands.add(new UpdateID());
     }
 
+    private int ScriptProtect=0;
     private static LinkedHashSet<AbstractCommand> commands=new LinkedHashSet<>();
     private boolean findid=false;
 
@@ -132,16 +133,17 @@ public class CommandManager {
      */
     public void executePrint() throws NullException{
         if(new CollectionsofPerson().getPeople().size()==0){
-            throw new NullException("collections still empty\n");
-        }
-        Integer [] list=getValues();
-        int [] values=new int[list.length];
-        for(int i=0;i<values.length;i++){
-            values[i]=list[i];
-        }
-        Arrays.sort(values);
-        for(int i=0;i<values.length;i++){
-            findByLocationHash(values[i]);
+            System.out.print("collections still empty\n");
+        }else {
+            Integer[] list = getValues();
+            int[] values = new int[list.length];
+            for (int i = 0; i < values.length; i++) {
+                values[i] = list[i];
+            }
+            Arrays.sort(values);
+            for (int i = 0; i < values.length; i++) {
+                findByLocationHash(values[i]);
+            }
         }
     }
 
@@ -209,7 +211,7 @@ public class CommandManager {
         Person m;
         Iterator<Person> iterator=new CollectionsofPerson().getPeople().iterator();
         out:while(iterator.hasNext()){
-            if((m=iterator.next()).getId()==id){
+            if((m = iterator.next()).getId().equals(id)){
                 p=m;
                 findid=true;
                 break out;
@@ -251,15 +253,19 @@ public class CommandManager {
      * Remove all the people,whose if bigger than specified
      * {@link CommandManager#findByid(Integer)}
      * @param in
+     * @throws NullException
      */
-    public void executeRemoveGreater(Integer in) {
+    public void executeRemoveGreater(Integer in) throws NullException{
         Person B=findByid(Integer.valueOf(in));
         if(B==null){
-            System.out.print("No element is available");
+            throw new NullException("No element is available");
         }else {
-            for(Person p: new CollectionsofPerson().getPeople()){
-                if(p.compareTo(B)==1)
+            Person p;
+            Iterator<Person> iterator=new CollectionsofPerson().getPeople().iterator();
+            while(iterator.hasNext()){
+                if((p=iterator.next()).compareTo(B)==1){
                     new CollectionsofPerson().getPeople().remove(p);
+                }
             }
         }
     }
@@ -269,9 +275,9 @@ public class CommandManager {
      * {@link CSVWriter#WriterToFile(LinkedHashSet, String)}
      * @throws IOException
      */
-    public void executeSave() throws IOException {
+    public void executeSave(String path) throws IOException {
         LinkedHashSet<Person> linkedHashSet=new CollectionsofPerson().getPeople();
-        new CSVWriter().WriterToFile(linkedHashSet,"src"+File.separator+"Person.csv");
+        new CSVWriter().WriterToFile(linkedHashSet,path);
     }
 
     /**
@@ -279,20 +285,26 @@ public class CommandManager {
      */
     public void executeShow() {
         if(new CollectionsofPerson().getPeople().size()==0){
-            throw new NullException("collections of people still empty\n");
+            System.out.print("collections of people still empty\n");
+        }else{
+            new Tools().PrintPersonSet(new CollectionsofPerson().getPeople());
         }
-        new Tools().PrintPersonSet(new CollectionsofPerson().getPeople());
     }
 
     /**
      * reset element with specified id.
-     * @param in
+     * {@link CommandManager#findByid(Integer)}
+     * @param
+     * @throws ParaInapproException
      */
-    public void executeUpdateID(String in) {
+    public void executeUpdateID(String in) throws ParaInapproException{
         Integer id=Integer.valueOf(in);
         Person p;
         Iterator<Person> iterator=new CollectionsofPerson().getPeople().iterator();
         out:while(iterator.hasNext()){
+            if(findByid(id)==null){
+                throw new ParaInapproException("no such a id\n");
+            }
             if((p=iterator.next()).getId()==id){
                 new CollectionsofPerson().getPeople().remove(p);
                 Person insert=Person.PeopleCreate();
@@ -332,16 +344,16 @@ public class CommandManager {
      * @throws IOException
      * @throws ParaInapproException
      */
-    public void executeExecuteScript(String name,CommandManager commandManager) throws IOException,ParaInapproException{
-        FileReader f=new FileReader(new File("src"+File.separator+name));
+    public void executeExecuteScript(String name,CommandManager commandManager,String Saver) throws IOException,ParaInapproException{
+        FileReader f=new FileReader(new File(name));
         BufferedReader bufferedReader=new BufferedReader(f);
         String commandtext="";
         while((commandtext=bufferedReader.readLine())!=null){
             String []split=commandtext.split(" ");
             AbstractCommand command=findCommand(split[0]);
-            if(command!=null) {
-                command.execute(commandManager,split);
-                new History().getHistory().add(command.getName()+"\n");
+            if(command!=null&&!(command.getName().equals("ExecuteScript")&&split[1].equals(name))) {
+                command.execute(commandManager, split,Saver);
+                new History().getHistory().add(command.getName() + "\n");
             }
         }
         bufferedReader.close();
